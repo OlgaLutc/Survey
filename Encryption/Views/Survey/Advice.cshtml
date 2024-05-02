@@ -1,0 +1,77 @@
+﻿@model List<Encryption.DB.QModel>
+
+@{
+    ViewBag.Title = "Advice for Incorrect Answers";
+}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        display: block; /* Изменено с flex на block */
+        height: auto;
+        align-items: center;
+        
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        max-width: 600px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: left;
+    }
+
+    strong {
+        color: #2a2a2a;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #555;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="container">
+    <h2>Advice for Incorrect Answers</h2>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <strong>@item.QuestionText</strong>
+                    <p>@item.Advice</p>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No incorrect answers. Well done!</p>
+    }
+</div>

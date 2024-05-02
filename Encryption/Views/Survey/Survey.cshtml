@@ -1,0 +1,58 @@
+﻿@model Encryption.DB.QModel
+@{
+    ViewBag.Title = "Question";
+}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+   
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    label {
+        font-size: 18px;
+    }
+</style>
+
+<div class="container">
+    <h2>@Model.QuestionText</h2>
+
+    @using (Html.BeginForm("Question", "Survey", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.QuestionId)
+        @Html.HiddenFor(m => m.CorrectAnswer)
+        <div>
+            <label>
+                @Html.RadioButtonFor(m => m.UserAnswer, true, new { id = "yes" })
+                Yes
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.UserAnswer, false, new { id = "no" })
+                No
+            </label>
+        </div>
+        <input type="submit" value="Next" />
+    }
+</div>

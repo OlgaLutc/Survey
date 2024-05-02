@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature</title>
+</head>
+<body>
+    <h2>Signature</h2>
+    <form action="@Url.Action("Sign", "Home")" method="post">
+        <label for="data">Data:</label><br>
+        <input type="text" id="data" name="data" value="@Model.Word"><br><br>
+
+        <label for="signature">Signature:</label><br>
+        <input type="text" id="signature" name="signature" value="@Model.EncryptedText"><br><br>
+
+        <button type="submit" name="encryptionType" value="Sign">Sign</button>
+        <button type="submit" name="encryptionType" value="Verify">Verify</button>
+        <br><br>
+
+        <!-- Отображаем результат проверки подписи, если он есть -->
+        @if (!string.IsNullOrEmpty(ViewBag.VerificationResult))
+        {
+            <p>@ViewBag.VerificationResult</p>
+        }
+    </form>
+</body>
+</html>

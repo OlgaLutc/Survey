@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Options</title>
+</head>
+<body>
+    <h2>Choose encryption method</h2>
+    <form id="myForm" action="/Home/EForm" method="post">
+        <button type="button" value="Symmetric" onclick="changeAction('/Home/EForm')">Symmetric</button>
+        <button type="button" value="Asymmetric" onclick="changeAction('/Home/AForm')">Asymmetric</button>
+    </form>
+
+    <script>
+        function changeAction(url) {
+            document.getElementById('myForm').action = url;
+            document.getElementById('myForm').submit();
+        }
+    </script>
+
+
+</body>
+</html>

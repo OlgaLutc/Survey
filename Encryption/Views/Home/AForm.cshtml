@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASymmetric Algorithm</title>
+</head>
+<body>
+    <h2>ASymmetric Encryption Options</h2>
+    <form action="@Url.Action("AForm", "Home")" method="post">
+        <label for="word">Enter a word:</label><br>
+        <input type="text" id="word" name="word" value="@Model.Word"><br><br>
+        <button type="submit" name="encryptionType" value="Decrypt">Decrypt</button>
+        <button type="submit" name="encryptionType" value="Encrypt">Encrypt</button>
+        <br><br>
+        <label for="encryptedText">Result:</label><br>
+        <input type="text" id="encryptedText" name="encryptedText" readonly
+               value="@((Model.ActionType == "Decrypt") ? Model.DecryptedText : Model.EncryptedText)">
+    </form>
+</body>
+</html>
